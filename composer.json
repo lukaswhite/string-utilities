@@ -1,0 +1,21 @@
+{
+    "name": "lukaswhite/string-utilities",
+    "description": "Some miscellaneous string utilities for PHP",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lukas White",
+            "email": "hello@lukaswhite.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "7.0",
+        "phpunit/php-code-coverage": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Lukaswhite\\StringUtilities\\": "src/"
+        }
+    }
+}

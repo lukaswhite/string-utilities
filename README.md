@@ -2,6 +2,7 @@
 
 A few miscellanous PHP string utilities.
 
+
 ## Strip Punctuation
 
 As the name suggests, the `stripPunctuation()` method strips all punctuation from a string.

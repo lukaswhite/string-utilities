@@ -135,4 +135,48 @@ class Strings
 
         return ( substr( $haystack, -strlen( $needle ) ) === $needle );
     }
+
+    /**
+     * Get an excerpt, by providing the required number of words.
+     *
+     * Credit: https://gist.github.com/wpscholar/8363040
+     *
+     * @param string $content The content to be transformed
+     * @param int    $length  The number of words
+     * @param string $more    The text to be displayed at the end, if shortened
+     * @return string
+     */
+    public static function excerpt( string $content, int $length = 40, string $more = '...' )
+    {
+        $excerpt = strip_tags( trim( $content ) );
+        $words = str_word_count( $excerpt, 2 );
+        if ( count( $words ) > $length ) {
+            $words = array_slice( $words, 0, $length, true );
+            end( $words );
+            $position = key( $words ) + strlen( current( $words ) );
+            $excerpt = substr( $excerpt, 0, $position ) . $more;
+        }
+        return $excerpt;
+    }
+
+    /**
+     * Get an excerpt, by providing the required number of characters.
+     *
+     * @param string $content The content to be transformed
+     * @param int    $length  The number of characters
+     * @param string $more    The text to be displayed at the end, if shortened
+     * @return string
+     */
+    public static function excerptCharacters( string $content, int $length = 100, string $more = '...' )
+    {
+        if ( strlen( $content ) <= $length ) {
+            return $content;
+        }
+
+        return preg_replace(
+            '/\s+?(\S+)?$/',
+            '',
+            substr( $content, 0, $length )
+        ) . $more;
+    }
 }

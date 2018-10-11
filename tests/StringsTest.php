@@ -82,4 +82,29 @@ class StringsTest extends \PHPUnit\Framework\TestCase
         $this->assertTrue( Strings::endsWith( 'This is a Test', 'test', false ) );
         $this->assertFalse( Strings::endsWith( 'This', 'This is a test' ) );
     }
+
+    public function testExcerptWords( )
+    {
+        $short = 'This is a test';
+        $this->assertEquals( $short, Strings::excerpt( $short ) );
+
+        $long = 'This is a test, to see if the excerpt function works properly';
+        $this->assertEquals(
+            'This is a test, to see if the excerpt...',
+            Strings::excerpt( $long, 9 )
+        );
+    }
+
+    public function testExcerptCharacters( )
+    {
+        $short = 'This is a test';
+        $this->assertEquals( $short, Strings::excerptCharacters( $short ) );
+
+        $long = 'This is a test, to see if the excerpt function works properly';
+        $this->assertEquals(
+            'This is a test, to see if the excerpt...',
+            Strings::excerptCharacters( $long, 42 )
+        );
+
+    }
 }

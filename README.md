@@ -95,3 +95,26 @@ Strings::startsWith( 'This is a test', 'Test', false )
 // true
 ```
 
+## Generate an Excerpt
+
+To generate an exceprt; as in, trim a string to a specified maximum number of words:
+
+```php
+$excerpt = Strings::excerpt( $content, 25 );
+```
+
+By default this appends `...` to the end of the string; change this using the optional third argument, for example:
+
+```php
+$excerpt = Strings::excerpt( 
+	$content, 
+	100,
+	'<a href="/path/to/page">Read More</a>'
+);
+```
+
+Alternatively, if you need to limit the length of the excerpt to a specified number of characters:
+
+```php
+$excerpt = Strings::excerptCharacters( $content, 200 );
+```

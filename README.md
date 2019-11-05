@@ -20,8 +20,6 @@ Strings::stripPunctuation(
 
 The `stripMultipleSpaces()` strips multiple spaces:
 
-As the name suggests, the `stripPunctuation()` method strips all punctuation from a string.
-
 ```php
 Strings::stripMultipleSpaces(
 	'This is  a string that has  some extra spaces'
@@ -29,7 +27,7 @@ Strings::stripMultipleSpaces(
 // outputs This is a string that has some extra spaces
 ```
 
-## Replace _n_th Occurence of a Substring
+## Replace the nth Occurence of a Substring
 
 If you have a string that contains multiple occurences of a given substring, but only want to replace a specific one, use `replaceNth()`.
 
@@ -56,10 +54,10 @@ Strings::randomHex( 5 );
 // Outputs something like de0f42
 ```
 
-To force it to be uppercase, pass `true` as the seconf argument.
+To force it to be uppercase, pass `true` as the second argument.
 
 ```php
-Strings::randomHex( 5 );
+Strings::randomHex( 5, true );
 // Outputs something like DE0F42
 ```
 

@@ -107,4 +107,28 @@ class StringsTest extends \PHPUnit\Framework\TestCase
         );
 
     }
+
+    public function testGettingLowercaseCharacters( )
+    {
+        $this->assertEquals(
+            [ 'd', 'h', 's', 'e', 'w', 'h', 'g', 'i' ],
+            array_values( Strings::getLowercaseCharacters( 'dhFs87ewBhg76i89' ) )
+        );
+    }
+
+    public function testGettingUppercaseCharacters( )
+    {
+        $this->assertEquals(
+            [ 'F', 'B' ],
+            array_values( Strings::getUppercaseCharacters( 'dhFs87ewBhg76i89' ) )
+        );
+    }
+
+    public function testGettingDigits( )
+    {
+        $this->assertEquals(
+            [ 8, 7, 7, 6, 8, 9 ],
+            array_values( Strings::getDigits( 'dhFs87ewBhg76i89' ) )
+        );
+    }
 }

@@ -179,4 +179,65 @@ class Strings
             substr( $content, 0, $length )
         ) . $more;
     }
+
+    /**
+     * Get the characters that match a truth test.
+     *
+     * @param string $str
+     * @param \Closure $check
+     * @return array
+     */
+    public static function getCharacters( string $str, \Closure $check )
+    {
+        return array_filter( str_split( $str, 1 ), $check );
+    }
+
+    /**
+     * Get the lowercase characters from a string
+     *
+     * @param string $str
+     * @return array
+     */
+    public static function getLowercaseCharacters( string $str )
+    {
+        return self::getCharacters(
+            $str,
+            function( $char ) {
+                return preg_match('/[a-z]+/', $char );
+            }
+        );
+    }
+
+    /**
+     * Get the uppercase characters from a string
+     *
+     * @param string $str
+     * @return array
+     */
+    public static function getUppercaseCharacters( string $str )
+    {
+        return self::getCharacters(
+            $str,
+            function( $char ) {
+                return preg_match('/[A-Z]+/', $char );
+            }
+        );
+    }
+
+    /**
+     * Get the digits from a string
+     *
+     * @param string $str
+     * @return array
+     */
+    public static function getDigits( string $str )
+    {
+        return self::getCharacters(
+            $str,
+            function( $char ) {
+                return preg_match('/\d/', $char );
+            }
+        );
+    }
+
 }

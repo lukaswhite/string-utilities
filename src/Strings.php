@@ -253,7 +253,7 @@ class Strings
      * @param string $separatingWord
      * @return mixed|string
      */
-    public static function inlineList( $words, $separatingWord = 'and' )
+    public static function inlineList( array $words, string $separatingWord = 'and' )
     {
         if ( count( $words ) === 0 ) {
             return '';

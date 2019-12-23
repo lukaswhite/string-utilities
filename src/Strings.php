@@ -240,4 +240,38 @@ class Strings
         );
     }
 
+    /**
+     * Given a list of words, condense them into an inline list, for example:
+     *
+     * [ 'apples', 'oranges', 'pears', 'bananas' ]
+     *
+     * becomes
+     *
+     * 'apples, oranges, pears and bananas'
+     *
+     * @param $words
+     * @param string $separatingWord
+     * @return mixed|string
+     */
+    public static function inlineList( $words, $separatingWord = 'and' )
+    {
+        if ( count( $words ) === 0 ) {
+            return '';
+        }
+        if ( count( $words ) === 1 ) {
+            return $words[ 0 ];
+        }
+
+        if ( count( $words ) === 2 ) {
+            return sprintf( '%s %s %s', $words[ 0 ], $separatingWord, $words[ 1 ] );
+        }
+
+        return sprintf(
+            '%s %s %s',
+            implode( ', ', array_slice( $words, 0, count( $words ) - 1 ) ),
+            $separatingWord,
+            $words[ count( $words ) - 1 ]
+        );
+    }
+
 }

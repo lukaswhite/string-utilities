@@ -131,4 +131,14 @@ class StringsTest extends \PHPUnit\Framework\TestCase
             array_values( Strings::getDigits( 'dhFs87ewBhg76i89' ) )
         );
     }
+
+    public function testInlineList( )
+    {
+        $this->assertEquals( '', Strings::inlineList( [ ] ) );
+        $this->assertEquals( 'one', Strings::inlineList( [ 'one' ] ) );
+        $this->assertEquals( 'one and two', Strings::inlineList( [ 'one', 'two' ] ) );
+        $this->assertEquals( 'one, two and three', Strings::inlineList( [ 'one', 'two', 'three' ] ) );
+        $this->assertEquals( 'one, two, three and four', Strings::inlineList( [ 'one', 'two', 'three', 'four' ] ) );
+        $this->assertEquals( 'one, two, three or four', Strings::inlineList( [ 'one', 'two', 'three', 'four' ], 'or' ) );
+    }
 }

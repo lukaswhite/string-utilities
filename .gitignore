@@ -2,3 +2,6 @@ vendor/
 log/
 composer.lock
 .DS_Store
+html-coverage/
+.idea/
+.phpunit.result.cache
